@@ -1,7 +1,8 @@
-use_module(library(readln)).
+:- use_module(library(readln)).
+:- use_module(library(clpfd)).
 
 database
-	vuelo(string, string, integer)
+	vuelo(string,string,integer)
 	visitado(string)
 predicates
 	ruta(string,string,integer)
@@ -24,12 +25,12 @@ goal
 	assert(vuelo(houston, los_angeles, 1500)),
 	encontrar_ruta, nl,
 	write("More "),
-	readline(Q),
+	readln(Q),
 	Q = n.
 
 encontrar_ruta:- /* not the minimum distance */
 	write("from: "),
-	readline(A),
+	readln(A),
 	write("to: "), readln(B),
 	ruta(A,B,D),
 	write("The distance is ", D), nl,
@@ -60,7 +61,7 @@ es_vuelo( T, T2, D):-
 	
 es_vuelo( T, T2, D):-
 	vuelo( T, X, D2),
-	X<>T2,
+	diff(X,T2),
 	anadir_a_ruta( T ),
 	es_vuelo( X, T2, D3),
 	D=D2+D3.

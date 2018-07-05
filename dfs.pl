@@ -1,4 +1,5 @@
-use_module(library(readln)).
+:- use_module(library(readln)).
+:- use_module(library(clpfd)).
 
 :- dynamic
 	visitado/1.
@@ -6,14 +7,14 @@ use_module(library(readln)).
 vuelo(new_york, chicago, 1000).
 vuelo(chicago, denver, 1000).
 vuelo(new_york, toronto, 800).
-vuelo(new_york, denver, 1900).
+vuelo(new_york, denver, 1900)).
 vuelo(toronto, calgary, 1500).
 vuelo(toronto, los_angeles, 1800).
 vuelo(toronto, chicago, 500).
 vuelo(denver, urbana, 1000).
 vuelo(denver, houston, 1500).
 vuelo(denver, los_angeles, 1000).
-vuelo(houston, los_angeles, 1500).
+vuelo(houston, los_angeles,1500).
 
 encontrar_ruta:- /* not the minimum distance */
 	write('from: '),
@@ -37,7 +38,7 @@ es_vuelo(T,T2,D):-
 	dif(X,T2),
 	anadir_a_ruta(T),
 	es_vuelo(X,T2,D3),
-	D=integer(D2)+integer(D3).
+	D=D2+D3.
 
 es_vuelo(T,_,D):-
 	/* Informar de un punto sin salida para mostrar como progresa la busqueda */

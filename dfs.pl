@@ -7,7 +7,7 @@
 vuelo(new_york, chicago, 1000).
 vuelo(chicago, denver, 1000).
 vuelo(new_york, toronto, 800).
-vuelo(new_york, denver, 1900)).
+vuelo(new_york, denver, 1900).
 vuelo(toronto, calgary, 1500).
 vuelo(toronto, los_angeles, 1800).
 vuelo(toronto, chicago, 500).
